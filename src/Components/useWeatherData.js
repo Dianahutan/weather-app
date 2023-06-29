@@ -21,7 +21,7 @@ export function useWeatherData() {
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
-      setLocation("");
+      setLocation();
     }
   };
 

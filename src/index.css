@@ -14,10 +14,10 @@ body {
 }
 
 p {
-  font-size: 1.6 rem;
+  font-size: 1.6rem;
 }
 
-h1{
+h1 {
   font-size: 6rem;
 }
 
@@ -26,12 +26,31 @@ h1{
   height: 100vh;
   position: relative;
   background-color: rgba(0, 0, 0, 0.4);
-  color:#fff
+  color: #fff;
 }
 
-.app:before {
-  content:'' ;
+.forecast-app {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.app::before {
+  content: '';
   background: url(./assets/bckimg.jpg) no-repeat center center/cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.forecast-app::before {
+  content: '';
+  background: url(./assets/ForecastWeather.jpg) no-repeat center center/cover;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -42,7 +61,6 @@ h1{
 
 .container {
   max-width: 700px;
-  height: 700px;
   margin: auto;
   padding: 0 1rem;
   position: relative;
@@ -52,12 +70,77 @@ h1{
   justify-content: space-between;
 }
 
-.app .top{
+.forecast-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 0 1rem;
+  position: relative;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app button {
+  background-color: transparent;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.app button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white;
+}
+
+.forecast-app button {
+  background-color: transparent;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.forecast-app button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.forecast-app button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white;
+}
+
+.app .top {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.forecast-app .top {
   width: 100%;
   margin: 1rem auto;
 }
 
 .app .description {
+  position: relative;
+  right: -90%;
+  transform-origin: 0 0;
+  transform: rotate(270deg);
+}
+
+.forecast-app .description {
   position: relative;
   right: -90%;
   transform-origin: 0 0;
@@ -75,17 +158,41 @@ h1{
   background-color: rgba(225, 225, 225, 0.2);
 }
 
+.forecast-app .bottom {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(225, 225, 225, 0.2);
+}
+
 .bold {
   font-weight: 700;
 }
 
 .app .search {
- text-align: center;
- padding: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.forecast-app .search {
+  text-align: center;
+  padding: 1rem;
 }
 
 .app input {
-  padding: .7rem 1.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(225, 225, 225, 0.8);
+  background: rgba(225, 225, 225, 0.2);
+}
+
+.forecast-app input {
+  padding: 0.7rem 1.5rem;
   font-size: 1.2rem;
   border-radius: 25px;
   border: 1px solid rgba(225, 225, 225, 0.8);
@@ -93,5 +200,20 @@ h1{
 }
 
 ::placeholder {
-  color: #f8f8f8
+  color: #f8f8f8;
+}
+
+.app {
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
 }
