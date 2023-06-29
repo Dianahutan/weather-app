@@ -60,29 +60,26 @@ function WeatherForecast() {
           <div className="temp">
             {weatherData?.main ? <h1>{weatherData.main.temp.toFixed()}°C</h1> : null}
           </div>
-          <div className="description">
-            {weatherData?.weather ? <p>{weatherData.weather[0].main}</p> : null}
-          </div>
         </div>
         {weatherData?.name !== undefined && (
           <div className="bottom">
             <div className="feels">
               {weatherData?.main ? (
-                <p className="bold">{weatherData.main.feels_like.toFixed()}°C</p>
+                <p className="bold">{weatherData.main.temp_min.toFixed()}°C</p>
               ) : null}
-              <p>Feels like</p>
+              <p>Min temperature</p>
             </div>
             <div className="humidity">
               {weatherData?.main ? (
-                <p className="bold">{weatherData.main.humidity.toFixed()}%</p>
+                <p className="bold">{weatherData.main.temp_max.toFixed()}°C</p>
               ) : null}
-              <p>Humidity</p>
+              <p>Max temperature</p>
             </div>
             <div className="wind">
               {weatherData?.wind ? (
-                <p className="bold">{weatherData.wind.speed.toFixed()} MHP</p>
+                <p className="bold">{weatherData.main.pressure}</p>
               ) : null}
-              <p>Wind speed</p>
+              <p>Pressure</p>
             </div>
           </div>
         )}

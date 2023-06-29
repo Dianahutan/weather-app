@@ -44,7 +44,7 @@ function Weather() {
           placeholder="Enter location"
           type="text"
         />
-        <button onClick={goToWeatherForecast}>Go to More Info</button>
+        <button onClick={goToWeatherForecast}>More Info</button>
       </div>
       <div className="container">
         <div className="top">
@@ -54,14 +54,12 @@ function Weather() {
           <div className="temp">
             {data.main ? <h1> {data.main.temp.toFixed()}°C</h1> : null}
           </div>
-          <div className="description">
-            {data.weather ? <p>{data.weather[0].main}</p> : null}
-          </div>
+        
         </div>
         {data.name !== undefined && (
           <div className="bottom">
             <div className="feels">
-              {data.main ? <p className="bold">{data.main.feels_like} </p> : null}
+              {data.main ? <p className="bold">{data.main.feels_like.toFixed()} </p> : null}
               <p>Feels like</p>
             </div>
             <div className="humidity">
