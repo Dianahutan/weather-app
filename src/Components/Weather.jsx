@@ -1,9 +1,11 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
 function Weather() {
     const [data, setData] = useState({})
     const [location, setLocation] = useState ('')
+    const navigate = useNavigate()
         
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
@@ -16,6 +18,10 @@ function Weather() {
             setLocation('')
             }
     }    
+
+const goToWeatherForecast = () => {
+    navigate("/Weatherforecast")
+      }
 
     return (
         <div className="app">
@@ -57,8 +63,9 @@ function Weather() {
                         </div>
                     </div>
                 }
+                <button onClick={goToWeatherForecast}>Go to More Info</button>
+                </div>
             </div>
-        </div>
     )
 }
   
