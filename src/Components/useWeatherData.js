@@ -7,7 +7,7 @@ export function useWeatherData() {
 
   useEffect(() => {
     if (location) {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+      const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
       axios.get(url)
         .then((response) => {
