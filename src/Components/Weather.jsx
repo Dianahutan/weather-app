@@ -14,7 +14,7 @@ function Weather() {
     if (event.key === "Enter") {
       if (location.trim() === "") {
         setShowPopup(true);
-      } else {
+      } else { 
         axios
           .get(url)
           .then((response) => {
@@ -59,7 +59,7 @@ function Weather() {
         {data.name !== undefined && (
           <div className="bottom">
             <div className="feels">
-              {data.main ? <p className="bold">{data.main.feels_like.toFixed()} </p> : null}
+              {data.main ? <p className="bold">{data.main.feels_like.toFixed()}°C </p> : null}
               <p>Feels like</p>
             </div>
             <div className="humidity">
